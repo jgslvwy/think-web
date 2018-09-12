@@ -9,7 +9,8 @@
 	
 	<mvc:annotation-driven/>
 	<mvc:default-servlet-handler/>
-	<context:component-scan base-package="com" />
+	<!-- 自动扫描某个路径下， 如果带有Component注册成bean -->
+	<context:component-scan base-package="user" />
 	
 	<!-- 对静态资源文件的访问  restful-->     
 	<mvc:resources mapping="/js/**" location="/js/" />
