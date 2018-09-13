@@ -24,6 +24,22 @@
 		<property name="prefix" value="/WEB-INF/html"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+<mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean
+                class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="dateFormat">
+                            <bean class="java.text.SimpleDateFormat">
+                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>	
 	<!-- 上传拦截，如最大上传值及最小上传值 -->
 <!--	  <bean id="multipartResolver"   class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >   
 		  <property name="maxUploadSize">    
@@ -45,4 +61,13 @@
         </property>
     </bean> -->
      
+     <!-- scan the package and the sub package -->
+    <context:component-scan base-package="user">
+        <context:include-filter type="annotation" 
+            expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" 
+            expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+    
+    
 </beans>

@@ -40,8 +40,9 @@
 	  }else{
 		 url= webPath+'/user/getkey';
 		 $.ajax({
-		 type: "post",
+		      type: "post",
 		      url: url,
+              dataType: "json",
 		      success: function (data) {
 		    	  if(data!=null){
 		    		     alert(data);

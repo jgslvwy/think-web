@@ -1,7 +1,9 @@
 package user.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +53,7 @@ public class UserController {
 
 	@RequestMapping(value = "/getkey", method = RequestMethod.POST)
 	@ResponseBody
-	public ResultVo<String> addkey() throws Exception {
+	public ResultVo<String> addkey() throws NoSuchAlgorithmException, InvalidKeySpecException {
 		// response.setHeader("Charset", "UTF8");
 		// response.setCharacterEncoding("UTF-8");
 		// response.setContentType("text/html; charset=UTF-8");
