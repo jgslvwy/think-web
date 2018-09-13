@@ -22,7 +22,6 @@ import utils.RsaUnit;
 @RequestMapping("/user")
 public class UserController {
 	private Map<String, PrivateKey> map = new HashMap<String, PrivateKey>();
-	long start = 0l;
 
 	@Resource(name = "userService")
 	private LoanServiceImpl userService;
@@ -45,17 +44,14 @@ public class UserController {
 		if (map.get(publicKey) != null) {
 			map.remove(publicKey);
 		}
-		System.out.println("加密后：" + (System.currentTimeMillis()-start));
 	}
 
 	@RequestMapping(value = "/getkey", method = RequestMethod.POST)
-	public String addkey()
-			throws Exception{
-		start =  System.currentTimeMillis();
+	public String addkey() throws Exception {
 		System.out.println("加密前：" + System.currentTimeMillis());
-//		response.setHeader("Charset", "UTF8");
-//		response.setCharacterEncoding("UTF-8");
-//		response.setContentType("text/html; charset=UTF-8");
+		// response.setHeader("Charset", "UTF8");
+		// response.setCharacterEncoding("UTF-8");
+		// response.setContentType("text/html; charset=UTF-8");
 		Map<String, String> keyMap = RsaUnit.createKeys(512);
 		String publicKeyString = keyMap.get("publicKey");
 		String privateKeyString = keyMap.get("privateKey");
@@ -66,7 +62,15 @@ public class UserController {
 		System.out.println("Modulus:" + Modulus);
 		System.out.println("Exponent:" + Exponent);
 		map.put(Modulus, privateKey);
-//		response.getWriter().write(Modulus);
+		// response.getWriter().write(Modulus);
 		return Modulus;
+	}
+
+	public static void main(String[] args) throws Exception {
+		Map<String, String> keyMap = RsaUnit.createKeys(512);
+		String publicKeyString = keyMap.get("publicKey");
+		String privateKeyString = keyMap.get("privateKey");
+		String string = RsaUnit.getPublicKey(publicKeyString).getModulus().toString(16);
+		System.out.println(string);
 	}
 }

@@ -34,15 +34,7 @@
 	 var webPath ='http://localhost:8081/think-web';
 	 var userCode = document.getElementById("name1").value;
 	 var password = document.getElementById("passwd").value;
-/* 	 $.ajax({
-	      type: "post",
-	      url: webPath + "/user/login"+"?name="+s+"&password="+s1,
-	      success: function (data) {
-	           alert("success: " + data);
-	      }
-	 });   */
-/* 	 window.location = webPath+'/user/login'+'?name='+s+'&password='+s1;
- */  
+	 
 	 if(""==userCode||""==password){
 		 alert("帐号和密码不能为空");
 	  }else{
