@@ -2,7 +2,7 @@
 <html>
 <h2>Hello World!</h2>
 <head>
-<script src="jquery-3.3.1.js"></script>
+<script src="common/jquery-3.3.1.js"></script>
 <script src="RSA/Barrett.js"></script>
 <script src="RSA/BigInt.js"></script>
 <script src="RSA/RSA.js"></script>

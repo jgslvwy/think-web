@@ -9,16 +9,19 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.druid.support.json.JSONUtils;
+
+import user.entity.ResultVo;
 import user.service.LoanServiceImpl;
 import utils.Md5Util;
 import utils.RsaUnit;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 	private Map<String, PrivateKey> map = new HashMap<String, PrivateKey>();
@@ -47,11 +50,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/getkey", method = RequestMethod.POST)
-	public String addkey() throws Exception {
-		System.out.println("加密前：" + System.currentTimeMillis());
+	@ResponseBody
+	public ResultVo<String> addkey() throws Exception {
 		// response.setHeader("Charset", "UTF8");
 		// response.setCharacterEncoding("UTF-8");
 		// response.setContentType("text/html; charset=UTF-8");
+		ResultVo<String> rv = new ResultVo<String>();
 		Map<String, String> keyMap = RsaUnit.createKeys(512);
 		String publicKeyString = keyMap.get("publicKey");
 		String privateKeyString = keyMap.get("privateKey");
@@ -63,7 +67,9 @@ public class UserController {
 		System.out.println("Exponent:" + Exponent);
 		map.put(Modulus, privateKey);
 		// response.getWriter().write(Modulus);
-		return Modulus;
+		rv.setData(Modulus);
+		rv.setCode("0");
+		return rv;
 	}
 
 	public static void main(String[] args) throws Exception {

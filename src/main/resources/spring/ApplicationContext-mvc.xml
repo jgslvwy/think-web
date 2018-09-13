@@ -24,9 +24,8 @@
 		<property name="prefix" value="/WEB-INF/html"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	
 	<!-- 上传拦截，如最大上传值及最小上传值 -->
-	  <bean id="multipartResolver"   class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >   
+<!--	  <bean id="multipartResolver"   class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >   
 		  <property name="maxUploadSize">    
 	          <value>104857600</value>    
 	       </property>   
@@ -37,4 +36,13 @@
 	            <value>utf-8</value>    
 	        </property> 
     </bean>  
+ <bean id="mappingJacksonHttpMessageConverter"
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean> -->
+     
 </beans>
