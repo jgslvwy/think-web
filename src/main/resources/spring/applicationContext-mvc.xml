@@ -41,7 +41,7 @@
         </mvc:message-converters>
     </mvc:annotation-driven>	
 	<!-- 上传拦截，如最大上传值及最小上传值 -->
-<!--	  <bean id="multipartResolver"   class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >   
+  <bean id="multipartResolver"   class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >   
 		  <property name="maxUploadSize">    
 	          <value>104857600</value>    
 	       </property>   
@@ -59,7 +59,7 @@
                 <value>text/html;charset=UTF-8</value>
             </list>
         </property>
-    </bean> -->
+    </bean>
      
      <!-- scan the package and the sub package -->
     <context:component-scan base-package="user">
