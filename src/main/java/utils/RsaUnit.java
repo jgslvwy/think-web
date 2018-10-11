@@ -48,7 +48,9 @@ public class RsaUnit {
 		keyPairMap.put("privateKey", privateKeyStr);
 		return keyPairMap;
 	}
-
+    
+	
+	
 	/**
 	 * 得到公钥
 	 * 
@@ -249,20 +251,24 @@ public class RsaUnit {
 		Map<String, String> keyMap = RsaUnit.createKeys(1024);
 		String publicKey = keyMap.get("publicKey");
 		String privateKey = keyMap.get("privateKey");
-		System.out.println("公钥: \n\r" + publicKey);
-		System.out.println("私钥： \n\r" + privateKey);
-		System.out.println("公钥加密——私钥解密");
-		RSAPublicKey rsaPublicKey = RsaUnit.getPublicKey(publicKey);
-		RSAPrivateKey rsaPrivateKey = RsaUnit.getPrivateKey(privateKey);
-		System.out.println(rsaPublicKey.getPublicExponent());
-		String modulus = rsaPublicKey.getModulus().toString();
-		System.out.println(modulus);
-		String str = "321";
-		System.out.println("\r明文：\r\n" + str);
-		System.out.println("\r明文大小：\r\n" + str.getBytes().length);
-		String encodedData = RsaUnit.publicEncrypt(str, RsaUnit.getPublicKey(publicKey));
-		System.out.println("密文：\r\n" + encodedData);
-		String decodedData = RsaUnit.privateDecrypt(encodedData, RsaUnit.getPrivateKey(privateKey));
-		System.out.println("解密后文字: \r\n" + decodedData);
+//		System.out.println("公钥: \n\r" + publicKey);
+//		System.out.println("私钥： \n\r" + privateKey);
+//		System.out.println("公钥加密——私钥解密");
+//		RSAPublicKey rsaPublicKey = RsaUnit.getPublicKey(publicKey);
+//		RSAPrivateKey rsaPrivateKey = RsaUnit.getPrivateKey(privateKey);
+//		System.out.println(rsaPublicKey.getPublicExponent());
+//		String modulus = rsaPublicKey.getModulus().toString();
+//		System.out.println(modulus);
+//		String str = "321";
+//		System.out.println("\r明文：\r\n" + str);
+//		System.out.println("\r明文大小：\r\n" + str.getBytes().length);
+//		String encodedData = RsaUnit.publicEncrypt(str, RsaUnit.getPublicKey(publicKey));
+//		System.out.println("密文：\r\n" + encodedData);
+//		String decodedData = RsaUnit.privateDecrypt(encodedData, RsaUnit.getPrivateKey(privateKey));
+//		System.out.println("解密后文字: \r\n" + decodedData);
+		System.out.println(publicKey);
+		//MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCEPfnliIRK1qKq14LNIMndmemzhxkmIiLTeXsjDJFBqFS2q-kcuGd6_gI6HyHCzENRiA6LzwXop1sULfk6efXA5po6mJaOg_uxpks_ovaZrlf0G6_5m5voTbfpq275f1xHfIm84pubO7avKl4JLz2DbwkRlxx1E0OJpd1wLImmtQIDAQAB
+		//MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCXBuEE0O2NitC-2fGXkOKv3P6T6Un96Z3PjwF-0LOSjvwDAr8CPs1I0EZCrch3yPvDLylinpNZwIkNrjAKWcvmUF67WIdX97CwLCyhdgKJ1YDInfkUU0PbuCt-wFgt5Ia9XLEyg8oi4JFC7osEvt5W-o6Z59oi8qmXO2n8oxZpIQIDAQAB
+
 	}
 }

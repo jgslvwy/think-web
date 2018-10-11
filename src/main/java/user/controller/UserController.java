@@ -6,6 +6,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.alibaba.druid.support.json.JSONUtils;
 
 import user.entity.ResultVo;
 import user.service.LoanServiceImpl;
@@ -72,6 +71,11 @@ public class UserController {
 		rv.setData(Modulus);
 		rv.setCode("0");
 		return rv;
+	}
+	
+	@RequestMapping(value = "/getToken", method = RequestMethod.POST)
+	public void addToken() {
+      	String string = UUID.randomUUID().toString();	
 	}
 
 	public static void main(String[] args) throws Exception {

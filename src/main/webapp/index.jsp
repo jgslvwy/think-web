@@ -6,6 +6,7 @@
 <script src="RSA/Barrett.js"></script>
 <script src="RSA/BigInt.js"></script>
 <script src="RSA/RSA.js"></script>
+
 </head>
 <body>
 	<form method="post" id="log">
@@ -45,7 +46,8 @@
               dataType: "json",
 		      success: function (data) {
 		    	  if(data!=null){
-		    		     alert(data);
+		    		  alert(data.data);
+		    		  alert(111);
 		    			 setMaxDigits(130);
 		    			 var key = new RSAKeyPair("10001","",data);
 		    			 var result = encryptedString(key, encodeURIComponent(password));
